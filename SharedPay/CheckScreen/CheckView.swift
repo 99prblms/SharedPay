@@ -176,7 +176,6 @@ class CheckView: UIView {
         addSubview(tipsYLabel)
         addSubview(tipsYField)
 //        addSubview(friendButtonA)
-        
     }
 //    
 //    @objc func frndBtn(){
