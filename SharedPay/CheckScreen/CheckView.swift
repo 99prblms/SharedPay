@@ -158,9 +158,9 @@ class CheckView: UIView {
         self.backgroundColor = .backgroundColorPix
         addSubviews()
         setupCheckStackView()
-        setupPersYStackView()
-        setupTipsYStackView()
-        setupPersTipsYStackView()
+//        setupPersYStackView()
+//        setupTipsYStackView()
+//        setupPersTipsYStackView()
 //        setupFriendButtonA()
     }
     
@@ -171,10 +171,10 @@ class CheckView: UIView {
     func addSubviews() {
         addSubview(checkLabel)
         addSubview(checkField)
-        addSubview(persYLabel)
-        addSubview(persYField)
-        addSubview(tipsYLabel)
-        addSubview(tipsYField)
+//        addSubview(persYLabel)
+//        addSubview(persYField)
+//        addSubview(tipsYLabel)
+//        addSubview(tipsYField)
 //        addSubview(friendButtonA)
     }
 //    
