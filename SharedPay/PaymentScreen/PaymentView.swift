@@ -45,10 +45,10 @@ class PaymentView: UIView {
     
     func setupPersStackView() {
         persStackView.translatesAutoresizingMaskIntoConstraints = false
-        persStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        persStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
         persStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         persStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -200).isActive = true
-        persStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        persStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
         
         persStackView.addArrangedSubview(persLabel)
         persStackView.addArrangedSubview(persField)
@@ -64,10 +64,10 @@ class PaymentView: UIView {
     
     func setupTipsStackView() {
         tipsStackView.translatesAutoresizingMaskIntoConstraints = false
-        tipsStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        tipsStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
         tipsStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 200).isActive = true
         tipsStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        tipsStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        tipsStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
         
         tipsStackView.addArrangedSubview(tipsLabel)
         tipsStackView.addArrangedSubview(tipsField)
@@ -75,7 +75,6 @@ class PaymentView: UIView {
     
     var persTipsStackView: UIStackView = {
         let persTipsStackView = UIStackView()
-        persTipsStackView.backgroundColor = .red
         persTipsStackView.axis = .vertical
         persTipsStackView.distribution = .fillEqually
         persTipsStackView.spacing = 10
@@ -84,10 +83,10 @@ class PaymentView: UIView {
     
     func setupPersTipsStackView() {
         persTipsStackView.translatesAutoresizingMaskIntoConstraints = false
-        persTipsStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        persTipsStackView.topAnchor.constraint(equalTo: summStackView.bottomAnchor, constant: 10).isActive = true
         persTipsStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         persTipsStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        persTipsStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        persTipsStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -150).isActive = true
         
         persTipsStackView.addArrangedSubview(persStackView)
         persTipsStackView.addArrangedSubview(tipsStackView)
@@ -100,7 +99,6 @@ class PaymentView: UIView {
         let summLabel = UILabel()
         summLabel.font = UIFont(name: "PressStartK", size: 30)
         summLabel.textColor = .fontColorPix
-        summLabel.backgroundColor = .cyan
         summLabel.text = "Check"
         summLabel.textAlignment = .center
         return summLabel
@@ -112,7 +110,6 @@ class PaymentView: UIView {
         let persLabel = UILabel()
         persLabel.font = UIFont(name: "PressStartK", size: 25)
         persLabel.textColor = .fontColorPix
-        persLabel.backgroundColor = .cyan
         persLabel.text = "Person"
         persLabel.textAlignment = .center
         return persLabel
@@ -122,7 +119,6 @@ class PaymentView: UIView {
         let tipsLabel = UILabel()
         tipsLabel.font = UIFont(name: "PressStartK", size: 25)
         tipsLabel.textColor = .fontColorPix
-        tipsLabel.backgroundColor = .cyan
         tipsLabel.text = "Tips"
         tipsLabel.textAlignment = .center
         return tipsLabel
