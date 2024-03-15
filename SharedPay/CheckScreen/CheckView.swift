@@ -9,168 +9,159 @@ import UIKit
 
 class CheckView: UIView {
     
-    var summLabelA: UILabel = {
-        let summLabel = UILabel()
-        summLabel.textColor = .fontColorPix
-        summLabel.font = UIFont(name: "PressStartK", size: 30)
-        summLabel.numberOfLines = 0
-        summLabel.text = "You will pay"
-        summLabel.textAlignment = .center
-        return summLabel
+    
+    var checkStackView: UIStackView = {
+        let checkStackView = UIStackView()
+        checkStackView.axis = .vertical
+        checkStackView.distribution = .fillEqually
+        checkStackView.spacing = 10
+        return checkStackView
     }()
     
-    var persLabelA: UILabel = {
-        let persLabel = UILabel()
-        persLabel.font = UIFont(name: "PressStartK", size: 25)
-        persLabel.numberOfLines = 0
-        persLabel.textColor = .fontColorPix
-        persLabel.text = "Your check"
-        persLabel.textAlignment = .center
-        return persLabel
+    func setupCheckStackView() {
+        checkStackView.translatesAutoresizingMaskIntoConstraints = false
+        checkStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        checkStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        checkStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        checkStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -400).isActive = true
+        
+        checkStackView.addArrangedSubview(checkLabel)
+        checkStackView.addArrangedSubview(checkField)
+    }
+    
+    var persYStackView: UIStackView = {
+        let persYStackView = UIStackView()
+        persYStackView.axis = .vertical
+        persYStackView.distribution = .fillEqually
+        persYStackView.spacing = 10
+        return persYStackView
     }()
     
-    var tipsLabelA: UILabel = {
-        let tipsLabel = UILabel()
-        tipsLabel.font = UIFont(name: "PressStartK", size: 25)
-        tipsLabel.numberOfLines = 0
-        tipsLabel.textColor = .fontColorPix
-        tipsLabel.text = "Your tip"
-        tipsLabel.textAlignment = .center
-        return tipsLabel
+    func setupPersYStackView() {
+        persYStackView.translatesAutoresizingMaskIntoConstraints = false
+        persYStackView.topAnchor.constraint(equalTo: persTipsYStackView.topAnchor, constant: 0).isActive = true
+        persYStackView.leadingAnchor.constraint(equalTo: persTipsYStackView.leadingAnchor, constant: 20).isActive = true
+        persYStackView.trailingAnchor.constraint(equalTo: persTipsYStackView.trailingAnchor, constant: -200).isActive = true
+        persYStackView.bottomAnchor.constraint(equalTo: persYStackView.bottomAnchor, constant: 0).isActive = true
+        
+        persYStackView.addArrangedSubview(persYLabel)
+        persYStackView.addArrangedSubview(persYField)
+    }
+    
+    var tipsYStackView: UIStackView = {
+        let tipsYStackView = UIStackView()
+        tipsYStackView.axis = .vertical
+        tipsYStackView.distribution = .fillEqually
+        tipsYStackView.spacing = 10
+        return tipsYStackView
     }()
     
-    var summFieldA: UILabel = {
-        let summField = UILabel()
-        summField.text = "0"
-        summField.font = UIFont(name: "PressStartK", size: 40)
-        summField.textAlignment = .center
-        summField.textColor = .fontColorPix
-        summField.translatesAutoresizingMaskIntoConstraints = false
-        return summField
+    func setupTipsYStackView() {
+        tipsYStackView.translatesAutoresizingMaskIntoConstraints = false
+        tipsYStackView.topAnchor.constraint(equalTo: persTipsYStackView.topAnchor, constant: 0).isActive = true
+        tipsYStackView.leadingAnchor.constraint(equalTo: persTipsYStackView.leadingAnchor, constant: 200).isActive = true
+        tipsYStackView.trailingAnchor.constraint(equalTo: persTipsYStackView.trailingAnchor, constant: -20).isActive = true
+        tipsYStackView.bottomAnchor.constraint(equalTo: persYStackView.bottomAnchor, constant: 0).isActive = true
+        
+        tipsYStackView.addArrangedSubview(tipsYLabel)
+        tipsYStackView.addArrangedSubview(tipsYField)
+    }
+    
+    var persTipsYStackView: UIStackView = {
+        let persTipsYStackView = UIStackView()
+        persTipsYStackView.axis = .vertical
+        persTipsYStackView.distribution = .fillEqually
+        persTipsYStackView.spacing = 10
+        return persTipsYStackView
     }()
     
-    var persFieldA: UILabel = {
-        let persField = UILabel()
-        persField.text = "0"
-        persField.font = UIFont(name: "PressStartK", size: 30)
-        persField.numberOfLines = 0
-        persField.textAlignment = .center
-        persField.textColor = .fontColorPix
-        persField.translatesAutoresizingMaskIntoConstraints = false
-        return persField
+    func setupPersTipsYStackView() {
+        persTipsYStackView.translatesAutoresizingMaskIntoConstraints = false
+        persTipsYStackView.topAnchor.constraint(equalTo:  checkStackView.bottomAnchor, constant: 10).isActive = true
+        persTipsYStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        persTipsYStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        persTipsYStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
+        
+        persTipsYStackView.addArrangedSubview(persYStackView)
+        persTipsYStackView.addArrangedSubview(tipsYStackView)
+    }
+    
+    
+    var checkLabel: UILabel = {
+        let checkLabel = UILabel()
+        checkLabel.font = UIFont(name: "PressStartK", size: 30)
+        checkLabel.textColor = .fontColorPix
+        checkLabel.text = "Check"
+        checkLabel.textAlignment = .center
+        return checkLabel
     }()
     
-    var tipsFieldA: UILabel = {
-        let tipsField = UILabel()
-        tipsField.text = "0"
-        tipsField.font = UIFont(name: "PressStartK", size: 30)
-        tipsField.textAlignment = .center
-        tipsField.textColor = .fontColorPix
-        tipsField.translatesAutoresizingMaskIntoConstraints = false
-        tipsField.layer.cornerRadius = 20
-        return tipsField
+    var persYLabel: UILabel = {
+        let persYLabel = UILabel()
+        persYLabel.font = UIFont(name: "PressStartK", size: 25)
+        persYLabel.textColor = .fontColorPix
+        persYLabel.text = "Person"
+        persYLabel.textAlignment = .center
+        return persYLabel
     }()
     
-    var friendButtonA: UIButton = {
-        let friendButtonA = UIButton(type: .system)
-        friendButtonA.setTitle("I am a good friend", for: .normal)
-        friendButtonA.translatesAutoresizingMaskIntoConstraints = false
-        friendButtonA.backgroundColor = .buttonColorPix
-        friendButtonA.tintColor = .fontColorPix
-        friendButtonA.titleLabel?.font = UIFont(name: "PressStartK", size: 18)
-        return friendButtonA
+    var tipsYLabel: UILabel = {
+        let tipsYLabel = UILabel()
+        tipsYLabel.font = UIFont(name: "PressStartK", size: 25)
+        tipsYLabel.textColor = .fontColorPix
+        tipsYLabel.text = "Tips"
+        tipsYLabel.textAlignment = .center
+        return tipsYLabel
     }()
     
-    func setupSummLabelA() {
-        summLabelA.translatesAutoresizingMaskIntoConstraints = false
-        summLabelA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            summLabelA.topAnchor.constraint(equalTo: topAnchor, constant: 200),
-            summLabelA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            summLabelA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -570),
-            summLabelA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
-    }
+    var checkField: UITextField = {
+        let checkField = UITextField()
+        checkField.placeholder = "0"
+        checkField.font = UIFont(name: "PressStartK", size: 30)
+        checkField.backgroundColor = .labelColorPix
+        checkField.textAlignment = .center
+        checkField.keyboardType = .numberPad
+        checkField.textColor = .fontColorPix
+        checkField.translatesAutoresizingMaskIntoConstraints = false
+        checkField.layer.cornerRadius = 20
+        return checkField
+    }()
     
-    func setupSummFieldA() {
-        summFieldA.translatesAutoresizingMaskIntoConstraints = false
-        summFieldA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            summFieldA.topAnchor.constraint(equalTo: summLabelA.topAnchor, constant: 100),
-            summFieldA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            summFieldA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -450),
-            summFieldA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
-    }
+    var persYField: UITextField = {
+        let persYField = UITextField()
+        persYField.placeholder = "0"
+        persYField.font = UIFont(name: "PressStartK", size: 30)
+        persYField.backgroundColor = .labelColorPix
+        persYField.textAlignment = .center
+        persYField.keyboardType = .numberPad
+        persYField.textColor = .fontColorPix
+        persYField.translatesAutoresizingMaskIntoConstraints = false
+        persYField.layer.cornerRadius = 20
+        return persYField
+    }()
     
-    func setupPersLabelA() {
-        persLabelA.translatesAutoresizingMaskIntoConstraints = false
-        persLabelA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            persLabelA.topAnchor.constraint(equalTo: summFieldA.topAnchor, constant: 130),
-            persLabelA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            persLabelA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -370),
-            persLabelA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -210)
-        ])
-    }
-    
-    func setupPersFieldA() {
-        persFieldA.translatesAutoresizingMaskIntoConstraints = false
-        persFieldA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            persFieldA.topAnchor.constraint(equalTo: persLabelA.topAnchor, constant: 50),
-            persFieldA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            persFieldA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -300),
-            persFieldA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -210)
-        ])
-    }
-    
-    func setupTipsLabelA() {
-        tipsLabelA.translatesAutoresizingMaskIntoConstraints = false
-        tipsLabelA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            tipsLabelA.topAnchor.constraint(equalTo: summFieldA.topAnchor, constant: 130),
-            tipsLabelA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200),
-            tipsLabelA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -370),
-            tipsLabelA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
-    }
-    
-    func setupTipsFieldA() {
-        tipsFieldA.translatesAutoresizingMaskIntoConstraints = false
-        tipsFieldA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            tipsFieldA.topAnchor.constraint(equalTo: tipsLabelA.topAnchor, constant: 50),
-            tipsFieldA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200),
-            tipsFieldA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -300),
-            tipsFieldA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
-    }
-    
-    func setupFriendButtonA() {
-        friendButtonA.translatesAutoresizingMaskIntoConstraints = false
-        friendButtonA.layer.masksToBounds = true
-        NSLayoutConstraint.activate([
-            friendButtonA.topAnchor.constraint(equalTo: summFieldA.topAnchor, constant: 280),
-            friendButtonA.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            friendButtonA.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -200),
-            friendButtonA.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
-        friendButtonA.layer.cornerRadius = 20
-        friendButtonA.addTarget(self, action: #selector (frndBtn), for: .touchUpInside)
-    }
+    var tipsYField: UITextField = {
+        let tipsYField = UITextField()
+        tipsYField.placeholder = "0"
+        tipsYField.font = UIFont(name: "PressStartK", size: 30)
+        tipsYField.backgroundColor = .labelColorPix
+        tipsYField.textAlignment = .center
+        tipsYField.keyboardType = .numberPad
+        tipsYField.textColor = .fontColorPix
+        tipsYField.translatesAutoresizingMaskIntoConstraints = false
+        tipsYField.layer.cornerRadius = 20
+        return tipsYField
+    }()
     
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .backgroundColorPix
         addSubviews()
-        setupSummLabelA()
-        setupSummFieldA()
-        setupPersLabelA()
-        setupPersFieldA()
-        setupTipsLabelA()
-        setupTipsFieldA()
-        setupFriendButtonA()
+        setupCheckStackView()
+        setupPersYStackView()
+        setupTipsYStackView()
+        setupPersTipsYStackView()
+//        setupFriendButtonA()
     }
     
     required init?(coder: NSCoder) {
@@ -178,19 +169,19 @@ class CheckView: UIView {
     }
     
     func addSubviews() {
-        addSubview(summLabelA)
-        addSubview(summFieldA)
-        addSubview(persLabelA)
-        addSubview(persFieldA)
-        addSubview(tipsLabelA)
-        addSubview(tipsFieldA)
-        addSubview(friendButtonA)
+        addSubview(checkLabel)
+        addSubview(checkField)
+        addSubview(persYLabel)
+        addSubview(persYField)
+        addSubview(tipsYLabel)
+        addSubview(tipsYField)
+//        addSubview(friendButtonA)
         
     }
-    
-    @objc func frndBtn(){
-        friendButtonA.setTitle("I am a best friend", for: .normal)
-    }
+//    
+//    @objc func frndBtn(){
+//        friendButtonA.setTitle("I am a best friend", for: .normal)
+//    }
     
 }
 

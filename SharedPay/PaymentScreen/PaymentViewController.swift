@@ -9,8 +9,7 @@ import UIKit
 
 class PaymentViewController: UIViewController {
 
-//    lazy var mainView = PaymentView(delegate: self)
-    lazy var mainView = PaymentView()
+    lazy var mainView = PaymentView(delegate: self)
     var mainModel = PaymentModel()
     var checkVC = CheckViewController()
     
