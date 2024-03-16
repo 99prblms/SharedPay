@@ -106,8 +106,8 @@ class CheckView: UIView {
         return tipsYLabel
     }()
     
-    var tipsYField: UITextField = {
-        let tipsYField = UITextField()
+    var tipsYField: UILabel = {
+        let tipsYField = UILabel()
         tipsYField.text = "0"
         tipsYField.font = UIFont(name: "PressStartK", size: 30)
         tipsYField.textAlignment = .center

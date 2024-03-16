@@ -10,6 +10,7 @@ import UIKit
 class PaymentViewController: UIViewController {
 
     lazy var mainView = PaymentView(delegate: self)
+    lazy var checkView = CheckView()
     var mainModel = PaymentModel()
     var checkVC = CheckViewController()
     
@@ -30,7 +31,10 @@ extension PaymentViewController: PaymentViewDelegate {
     }
     
     func PaymentViewTapBtn(summ: String?, pers: String?, tips: String?) {
-        _ = mainModel.chitaemSumm(summ: summ!, pers: pers!, tips: tips!)
+        var a = mainModel.chitaemSumm(summ: summ!, pers: pers!, tips: tips!)
+        checkView.checkField.text = String(a!.yourCheck)
+        checkView.persYField.text = String(a!.yourWP)
+        checkView.tipsYField.text = String(a!.yourTips)
     }
 }
 

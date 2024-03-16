@@ -9,18 +9,32 @@ import Foundation
 
 class PaymentModel {
     
-    func chitaemSumm(summ: String?, pers: String?, tips: String?) -> Int? {
+    struct dataSumm {
+        var yourCheck: Int
+        var yourTips: Int
+        var yourWP: Int
+    }
+    
+    func chitaemSumm(summ: String?, pers: String?, tips: String?) -> dataSumm? {
         
-        guard let aString = summ, let bString = pers, let cString = tips else {
-            return nil
+        if let summStr = summ, let persStr = pers, let tipsStr = tips {
+            if let summInt = Int(summ!), let persInt = Int(pers!), let tipsInt = Int(tips!) {
+                
+                let yTips = tipsInt / persInt
+                let yCheck = summInt / persInt
+                let yWP = yTips + yCheck
+                let itog = dataSumm(yourCheck: yCheck, yourTips: yTips, yourWP: yWP)
+                
+                return itog
+            } else {
+                print("Ошибка нет числа")
+                let itog = dataSumm(yourCheck: 0, yourTips: 0, yourWP: 0)
+                return itog
+            }
+        } else {
+            print("Ошибка нет значений")
+            let itog = dataSumm(yourCheck: 0, yourTips: 0, yourWP: 0)
+            return itog
         }
-        guard let a = Int(aString), let b = Int(bString), let c = Int(cString) else {
-            return nil
-        }
-        guard b != 0 else {
-            return nil
-        }
-        let d = (a / b) + (c / b)
-        return d
     }
 }

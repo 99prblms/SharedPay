@@ -211,7 +211,7 @@ class PaymentView: UIView {
     }
     
     @objc func tapBtn(){
-        let checkVC = CheckViewController()
+        _ = CheckViewController()
         self.delegate?.PaymentViewTapBtn(summ: summField.text, pers: persField.text, tips: tipsField.text)
         self.delegate?.navigatePayViews()
     }
