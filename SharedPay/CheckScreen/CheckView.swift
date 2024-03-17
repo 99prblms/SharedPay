@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 protocol CheckViewDelegate {
     func dontPressX2 (SummCheckX2: String, YCheckX2: String, YTipsX2: String)
@@ -200,21 +201,22 @@ class CheckView: UIView {
     
     @objc func frndBtn(){
         self.delegate?.dontPressX2(SummCheckX2: checkField.text!, YCheckX2: tipsYField.text!, YTipsX2: persYField.text!)
+        friendButtonA.isEnabled = false
         friendButtonA.setTitle("You will pay x2 T_T", for: .normal)
-        
+        AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {
+        }
     }
     
     func updateView(with data: StructSumm) {
         checkField.text = String(data.yourWP)
         tipsYField.text = String(data.yourTips)
         persYField.text = String(data.yourCheck)
-       }
+    }
     
     func updateViewX2(with data: StructSumm) {
         checkField.text = String(data.yourWP)
         tipsYField.text = String(data.yourTips)
         persYField.text = String(data.yourCheck)
-       }
-    
+    }
 }
 
