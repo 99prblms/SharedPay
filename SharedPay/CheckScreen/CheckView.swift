@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol CheckViewDelegate {
+    func dontPressX2 (SummCheckX2: String, YCheckX2: String, YTipsX2: String)
+}
+
 class CheckView: UIView {
+    
+    var delegate: CheckViewDelegate?
     
     var checkStackView: UIStackView = {
         let checkStackView = UIStackView()
@@ -149,7 +155,7 @@ class CheckView: UIView {
     
     var friendButtonA: UIButton = {
         let friendButtonA = UIButton(type: .system)
-        friendButtonA.setTitle("Let's count", for: .normal)
+        friendButtonA.setTitle("don't press", for: .normal)
         friendButtonA.translatesAutoresizingMaskIntoConstraints = false
         friendButtonA.backgroundColor = .buttonColorPix
         friendButtonA.tintColor = .fontColorPix
@@ -168,7 +174,8 @@ class CheckView: UIView {
         friendButtonA.addTarget(self, action: #selector (frndBtn), for: .touchUpInside)
     }
     
-    init() {
+    init(delegate: CheckViewDelegate) {
+        self.delegate = delegate
         super.init(frame: .zero)
         self.backgroundColor = .backgroundColorPix
         addSubviews()
@@ -192,8 +199,22 @@ class CheckView: UIView {
     }
     
     @objc func frndBtn(){
-        friendButtonA.setTitle("I am a best friend", for: .normal)
+        self.delegate?.dontPressX2(SummCheckX2: checkField.text!, YCheckX2: tipsYField.text!, YTipsX2: persYField.text!)
+        friendButtonA.setTitle("You will pay x2 T_T", for: .normal)
+        
     }
+    
+    func updateView(with data: StructSumm) {
+        checkField.text = String(data.yourWP)
+        tipsYField.text = String(data.yourTips)
+        persYField.text = String(data.yourCheck)
+       }
+    
+    func updateViewX2(with data: StructSumm) {
+        checkField.text = String(data.yourWP)
+        tipsYField.text = String(data.yourTips)
+        persYField.text = String(data.yourCheck)
+       }
     
 }
 
