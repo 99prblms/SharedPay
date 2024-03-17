@@ -16,6 +16,6 @@ class CheckModel {
                 print("Ошибка: невозможно преобразовать значения в числа.")
                 return nil
             }
-            return StructSumm(yourCheck: summInt * 2, yourTips: tipsInt * 2, yourWP: ((summInt / persInt) + (tipsInt / persInt)) * 2)
+            return StructSumm(yourCheck: summInt * 2, yourTips: tipsInt * 2, yourWP: (summInt * 2) + (tipsInt * 2))
         }
     }
