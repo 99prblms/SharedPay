@@ -139,7 +139,6 @@ class CheckView: UIView {
         let persTipsYStackView = UIStackView()
         persTipsYStackView.axis = .vertical
         persTipsYStackView.distribution = .fillEqually
-        persTipsYStackView.spacing = 10
         return persTipsYStackView
     }()
     
