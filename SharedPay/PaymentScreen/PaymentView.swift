@@ -50,7 +50,7 @@ class PaymentView: UIView {
         persStackView.translatesAutoresizingMaskIntoConstraints = false
         persStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
         persStackView.leadingAnchor.constraint(equalTo: persTipsStackView.leadingAnchor, constant: 20).isActive = true
-        persStackView.trailingAnchor.constraint(equalTo: persTipsStackView.trailingAnchor, constant: -200).isActive = true
+        persStackView.trailingAnchor.constraint(equalTo: persTipsStackView.trailingAnchor, constant: -210).isActive = true
         persStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
         
         persStackView.addArrangedSubview(persLabel)
@@ -68,7 +68,7 @@ class PaymentView: UIView {
     func setupTipsStackView() {
         tipsStackView.translatesAutoresizingMaskIntoConstraints = false
         tipsStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
-        tipsStackView.leadingAnchor.constraint(equalTo: persTipsStackView.leadingAnchor, constant: 200).isActive = true
+        tipsStackView.leadingAnchor.constraint(equalTo: persTipsStackView.leadingAnchor, constant: 210).isActive = true
         tipsStackView.trailingAnchor.constraint(equalTo: persTipsStackView.trailingAnchor, constant: -20).isActive = true
         tipsStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
         
