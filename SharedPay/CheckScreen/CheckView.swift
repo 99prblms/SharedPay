@@ -191,11 +191,9 @@ class CheckView: UIView {
     }
     
     func addSubviews() {
-        addSubview(checkStackView)
-        addSubview(persYStackView)
-        addSubview(tipsYStackView)
-        addSubview(persTipsYStackView)
-        addSubview(friendButtonA)
+        [checkStackView, persYStackView, tipsYStackView, persTipsYStackView, friendButtonA].forEach {
+             addSubview($0)
+        }
     }
     
     @objc func frndBtn(){
@@ -207,12 +205,6 @@ class CheckView: UIView {
     }
     
     func updateView(with data: StructSumm) {
-        checkField.text = String(data.yourWP)
-        tipsYField.text = String(data.yourTips)
-        persYField.text = String(data.yourCheck)
-    }
-    
-    func updateViewX2(with data: StructSumm) {
         checkField.text = String(data.yourWP)
         tipsYField.text = String(data.yourTips)
         persYField.text = String(data.yourCheck)

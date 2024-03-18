@@ -39,7 +39,7 @@ class CheckViewController: UIViewController {
 extension CheckViewController: CheckViewDelegate {
     func dontPressX2(SummCheckX2: String, YCheckX2: String, YTipsX2: String) {
         dataQWX2 = mainModel.chitaemSummX2(summ: SummCheckX2, pers: YCheckX2, tips: YTipsX2)
-        mainView.updateViewX2(with: dataQWX2!)
+        mainView.updateView(with: dataQWX2!)
     }
 }
 
