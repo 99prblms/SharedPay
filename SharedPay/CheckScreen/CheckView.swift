@@ -174,7 +174,7 @@ class CheckView: UIView {
         friendButtonA.addTarget(self, action: #selector (frndBtn), for: .touchUpInside)
     }
     
-    init(delegate: CheckViewDelegate) {
+    init(delegate: CheckViewDelegate, dataQW: StructSumm) {
         self.delegate = delegate
         super.init(frame: .zero)
         self.backgroundColor = .backgroundColorPix
@@ -184,6 +184,10 @@ class CheckView: UIView {
         setupTipsYStackView()
         setupPersTipsYStackView()
         setupFriendButtonA()
+        
+        checkField.text = String(dataQW.yourWP)
+        tipsYField.text = String(dataQW.yourTips)
+        persYField.text = String(dataQW.yourCheck)
     }
     
     required init?(coder: NSCoder) {

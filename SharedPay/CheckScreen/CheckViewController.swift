@@ -9,17 +9,21 @@ import UIKit
 
 class CheckViewController: UIViewController {
     
-    var dataQW: StructSumm? {
-        didSet {
-            if let data = dataQW {
-                mainView.updateView(with: data)
-            }
-        }
-    }
+    
+    
+//    var dataQW: StructSumm? {
+//        didSet {
+//            if let data = dataQW {
+//                mainView.updateView(with: data)
+//            }
+//        }
+//    }
+    
+    var dataQW: StructSumm?
     
     var dataQWX2: StructSumm?
     var mainModel = CheckModel()
-    lazy var mainView = CheckView(delegate: self)
+    lazy var mainView = CheckView(delegate: self, dataQW: dataQW!)
     
     override func loadView() {
         view = mainView
@@ -29,6 +33,15 @@ class CheckViewController: UIViewController {
         super.viewDidLoad()
         func updateViewWithData() {
         }
+    }
+    
+    init(dataQW: StructSumm? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        self.dataQW = dataQW
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
