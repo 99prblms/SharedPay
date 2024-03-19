@@ -11,7 +11,7 @@ class PaymentViewController: UIViewController {
     
     lazy var mainView = PaymentView(delegate: self)
     var mainModel = PaymentModel()
-    var checkVC: CheckViewController?
+    var newValue: StructSumm?
     
     override func loadView() {
         view = mainView
@@ -26,13 +26,12 @@ class PaymentViewController: UIViewController {
 extension PaymentViewController: PaymentViewDelegate {
     
     func navigatePayViews() {
-        navigationController?.pushViewController(checkVC!, animated: true)
+        let checkVC = CheckViewController(dataQW: newValue)
+        navigationController?.pushViewController(checkVC, animated: true)
     }
     
     func PaymentViewTapBtn(summ: String?, pers: String?, tips: String?) {
-        let newCheckVC = CheckViewController()
-        newCheckVC.dataQW = mainModel.chitaemSumm(summ: summ!, pers: pers!, tips: tips!)
-        self.checkVC = newCheckVC 
+        newValue = mainModel.chitaemSumm(summ: summ, pers: pers, tips: tips)
     }
 }
 
