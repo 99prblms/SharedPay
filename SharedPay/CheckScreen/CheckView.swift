@@ -85,12 +85,6 @@ class CheckView: UIView {
     }()
     
     func setupPersYStackView() {
-        persYStackView.translatesAutoresizingMaskIntoConstraints = false
-        persYStackView.topAnchor.constraint(equalTo: persTipsYStackView.topAnchor, constant: 0).isActive = true
-        persYStackView.leadingAnchor.constraint(equalTo: persTipsYStackView.leadingAnchor, constant: 20).isActive = true
-        persYStackView.trailingAnchor.constraint(equalTo: persTipsYStackView.trailingAnchor, constant: -200).isActive = true
-        persYStackView.bottomAnchor.constraint(equalTo: persYStackView.bottomAnchor, constant: 0).isActive = true
-        
         persYStackView.addArrangedSubview(persYLabel)
         persYStackView.addArrangedSubview(persYField)
     }
@@ -125,28 +119,22 @@ class CheckView: UIView {
     }()
     
     func setupTipsYStackView() {
-        tipsYStackView.translatesAutoresizingMaskIntoConstraints = false
-        tipsYStackView.topAnchor.constraint(equalTo: persTipsYStackView.topAnchor, constant: 0).isActive = true
-        tipsYStackView.leadingAnchor.constraint(equalTo: persTipsYStackView.leadingAnchor, constant: 200).isActive = true
-        tipsYStackView.trailingAnchor.constraint(equalTo: persTipsYStackView.trailingAnchor, constant: -20).isActive = true
-        tipsYStackView.bottomAnchor.constraint(equalTo: persYStackView.bottomAnchor, constant: 0).isActive = true
-        
         tipsYStackView.addArrangedSubview(tipsYLabel)
         tipsYStackView.addArrangedSubview(tipsYField)
     }
     
     var persTipsYStackView: UIStackView = {
         let persTipsYStackView = UIStackView()
-        persTipsYStackView.axis = .vertical
+        persTipsYStackView.axis = .horizontal
         persTipsYStackView.distribution = .fillEqually
         return persTipsYStackView
     }()
     
     func setupPersTipsYStackView() {
         persTipsYStackView.translatesAutoresizingMaskIntoConstraints = false
-        persTipsYStackView.topAnchor.constraint(equalTo:  checkStackView.bottomAnchor, constant: 10).isActive = true
-        persTipsYStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        persTipsYStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        persTipsYStackView.topAnchor.constraint(equalTo: checkStackView.bottomAnchor, constant: 10).isActive = true
+        persTipsYStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        persTipsYStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         persTipsYStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
         
         persTipsYStackView.addArrangedSubview(persYStackView)

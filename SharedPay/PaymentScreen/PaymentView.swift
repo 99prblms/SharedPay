@@ -8,7 +8,6 @@
 import UIKit
 
 protocol PaymentViewDelegate: AnyObject {
-    
     func PaymentViewTapBtn (summ: String?, pers: String?, tips: String?)
     
     func navigatePayViews()
@@ -23,7 +22,6 @@ class PaymentView: UIView {
         let summStackView = UIStackView()
         summStackView.axis = .vertical
         summStackView.distribution = .fillEqually
-        summStackView.spacing = 10
         return summStackView
     }()
     
@@ -42,17 +40,10 @@ class PaymentView: UIView {
         let persStackView = UIStackView()
         persStackView.axis = .vertical
         persStackView.distribution = .fillEqually
-        persStackView.spacing = 10
         return persStackView
     }()
     
     func setupPersStackView() {
-        persStackView.translatesAutoresizingMaskIntoConstraints = false
-        persStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
-        persStackView.leadingAnchor.constraint(equalTo: persTipsStackView.leadingAnchor, constant: 20).isActive = true
-        persStackView.trailingAnchor.constraint(equalTo: persTipsStackView.trailingAnchor, constant: -210).isActive = true
-        persStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
-        
         persStackView.addArrangedSubview(persLabel)
         persStackView.addArrangedSubview(persField)
     }
@@ -61,34 +52,27 @@ class PaymentView: UIView {
         let tipsStackView = UIStackView()
         tipsStackView.axis = .vertical
         tipsStackView.distribution = .fillEqually
-        tipsStackView.spacing = 10
         return tipsStackView
     }()
     
     func setupTipsStackView() {
-        tipsStackView.translatesAutoresizingMaskIntoConstraints = false
-        tipsStackView.topAnchor.constraint(equalTo: persTipsStackView.topAnchor, constant: 0).isActive = true
-        tipsStackView.leadingAnchor.constraint(equalTo: persTipsStackView.leadingAnchor, constant: 210).isActive = true
-        tipsStackView.trailingAnchor.constraint(equalTo: persTipsStackView.trailingAnchor, constant: -20).isActive = true
-        tipsStackView.bottomAnchor.constraint(equalTo: persStackView.bottomAnchor, constant: 0).isActive = true
-        
         tipsStackView.addArrangedSubview(tipsLabel)
         tipsStackView.addArrangedSubview(tipsField)
     }
     
     var persTipsStackView: UIStackView = {
         let persTipsStackView = UIStackView()
-        persTipsStackView.axis = .vertical
-        persTipsStackView.distribution = .fillEqually
         persTipsStackView.spacing = 10
+        persTipsStackView.axis = .horizontal
+        persTipsStackView.distribution = .fillEqually
         return persTipsStackView
     }()
     
     func setupPersTipsStackView() {
         persTipsStackView.translatesAutoresizingMaskIntoConstraints = false
         persTipsStackView.topAnchor.constraint(equalTo: summStackView.bottomAnchor, constant: 10).isActive = true
-        persTipsStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        persTipsStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        persTipsStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        persTipsStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         persTipsStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
         
         persTipsStackView.addArrangedSubview(persStackView)

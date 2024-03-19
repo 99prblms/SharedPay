@@ -8,19 +8,8 @@
 import UIKit
 
 class CheckViewController: UIViewController {
-    
-    
-    
-//    var dataQW: StructSumm? {
-//        didSet {
-//            if let data = dataQW {
-//                mainView.updateView(with: data)
-//            }
-//        }
-//    }
-    
+        
     var dataQW: StructSumm?
-    
     var dataQWX2: StructSumm?
     var mainModel = CheckModel()
     lazy var mainView = CheckView(delegate: self, dataQW: dataQW!)
